@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectcaju/modules/common/views/home_view.dart';
+import 'package:projectcaju/modules/news/views/home_view.dart';
 
 
 class HomeRoutes {

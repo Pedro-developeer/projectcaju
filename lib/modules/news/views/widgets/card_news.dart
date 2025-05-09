@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectcaju/modules/common/views/widgets/tiker_flag.dart';
+import 'package:projectcaju/modules/news/views/widgets/tiker_flag.dart';
 
 class CardNews extends StatelessWidget {
   const CardNews({

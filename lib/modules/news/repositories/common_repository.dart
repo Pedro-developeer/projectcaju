@@ -1,5 +1,5 @@
 import 'package:http_interceptor/http_interceptor.dart';
-import 'package:projectcaju/modules/common/repositories/repository.dart';
+import 'package:projectcaju/modules/news/repositories/repository.dart';
 
 
 class CommonRepository extends Repository {

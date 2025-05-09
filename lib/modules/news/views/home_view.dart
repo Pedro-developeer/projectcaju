@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projectcaju/modules/common/views/controller/home_controller.dart';
-import 'package:projectcaju/modules/common/views/widgets/card_news.dart';
+import 'package:projectcaju/modules/news/views/controller/home_controller.dart';
+import 'package:projectcaju/modules/news/views/widgets/card_news.dart';
 
 import 'package:provider/provider.dart';
 
