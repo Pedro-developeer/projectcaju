@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projectcaju/modules/common/controllers/common_controller.dart';
+import 'package:projectcaju/modules/common/views/controller/home_controller.dart';
 import 'package:projectcaju/modules/common/routes/commons_routes.dart';
+import 'package:projectcaju/modules/common/views/widgets/card_news.dart';
+import 'package:projectcaju/modules/common/views/widgets/tiker_flag.dart';
 import 'package:provider/provider.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -47,48 +49,40 @@ class _HomeViewState extends State<HomeView1> {
               ),
             ),
           ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Notícias Rápidas',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.normal,
-                    fontFamily: 'SFPro',
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: 3,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            
-                          ),
-                          child: ListTile(
-                            title: Text('Lorem Ipsum Dolor Sit Amet'),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.black,
-                            ),
+          body:
+              context.watch<CommonController>().isLoading
+                  ? Center(child: CircularProgressIndicator())
+                  : Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Notícias Rápidas',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'SFPro',
                           ),
                         ),
-                      );
-                    },
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: controller.newsModel.news!.length,
+                            itemBuilder: (context, index) {
+                              return CardNews(
+                                title: controller.newsModel.news![index].news,
+                                date: controller.newsModel.news![index].date,
+                                tickerTitle:
+                                    controller.newsModel.news![index].type,
+                                onTap: () {},
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

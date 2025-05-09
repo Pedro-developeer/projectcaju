@@ -1,6 +1,7 @@
 import 'package:http_interceptor/http_interceptor.dart';
 import 'package:projectcaju/modules/common/repositories/repository.dart';
 
+
 class CommonRepository extends Repository {
   CommonRepository({
     super.endPoint = '/v4/news',

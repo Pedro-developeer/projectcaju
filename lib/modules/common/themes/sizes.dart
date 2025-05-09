@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projectcaju/modules/common/models/size_models.dart';
-
 class AppSizes {
   static SizeModel padding = SizeModel(
     tiny: 6,

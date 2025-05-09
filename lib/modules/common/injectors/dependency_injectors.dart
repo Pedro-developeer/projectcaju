@@ -1,8 +1,9 @@
 
 import 'package:flutter/widgets.dart';
-import 'package:projectcaju/modules/common/controllers/common_controller.dart';
 import 'package:projectcaju/modules/common/repositories/common_repository.dart';
 import 'package:projectcaju/modules/common/services/common_service.dart';
+import 'package:projectcaju/modules/common/views/controller/home_controller.dart';
+
 import 'package:provider/provider.dart';
 
 class DependencyInjector extends StatelessWidget {

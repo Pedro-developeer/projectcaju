@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:projectcaju/modules/common/themes/colors.dart';
 import 'package:projectcaju/modules/common/themes/sizes.dart';
 
+
 class AppTheme {
   static ThemeData light = ThemeData(
     bottomSheetTheme: const BottomSheetThemeData(

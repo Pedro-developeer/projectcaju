@@ -3,9 +3,8 @@ import 'dart:io';
 import 'package:http/http.dart';
 import 'package:projectcaju/configs/config.dart';
 import 'package:projectcaju/modules/common/constants/string_constants.dart';
-import 'dart:convert';
-import 'package:http_interceptor/http_interceptor.dart';
 import 'package:projectcaju/modules/common/interceptor/interceptor.dart';
+import 'package:http_interceptor/http_interceptor.dart';
 
 class Repository {
   static const httpOkCode = 200;
@@ -13,14 +12,10 @@ class Repository {
 
   final String endPoint;
 
-  Repository({
-    required this.endPoint,
-  });
+  Repository({required this.endPoint});
 
-InterceptedClient client = InterceptedClient.build(
-    interceptors: [
-      AppInterceptor(),
-    ],
+  InterceptedClient client = InterceptedClient.build(
+    interceptors: [AppInterceptor()],
   );
 
   String getApiUrl({String? complement}) {
@@ -37,15 +32,13 @@ InterceptedClient client = InterceptedClient.build(
 
   String getResponseBody(Response response) {
     String? treatedResponse = response.body;
-      if (response.body.contains('<!DOCTYPE html>')) {
-        treatedResponse = StringConstant.genericError;
+    if (response.body.contains('<!DOCTYPE html>')) {
+      treatedResponse = StringConstant.genericError;
     }
 
     if (response.statusCode != httpOkCode &&
         response.statusCode != httpCreatedCode) {
-      throw HttpException(
-        _getErrorMessage(treatedResponse),
-      );
+      throw HttpException(_getErrorMessage(treatedResponse));
     }
     return treatedResponse;
   }
@@ -78,9 +71,7 @@ InterceptedClient client = InterceptedClient.build(
   }
 
   Future<String> delete(int id) async {
-    Response response = await client.delete(
-      Uri.parse('${getApiUrl()}/$id'),
-    );
+    Response response = await client.delete(Uri.parse('${getApiUrl()}/$id'));
 
     return getResponseBody(response);
   }

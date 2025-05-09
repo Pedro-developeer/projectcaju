@@ -3,11 +3,7 @@ import 'package:projectcaju/modules/common/themes/colors.dart';
 import 'package:projectcaju/modules/common/themes/sizes.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-enum BodyRadiusType {
-  leftOnly,
-  curved,
-  linear,
-}
+enum BodyRadiusType { leftOnly, curved, linear }
 
 class AppScaffoldWidget extends StatefulWidget {
   final Widget child;
@@ -54,44 +50,44 @@ class _AppScaffoldWidgetState extends State<AppScaffoldWidget> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-        canPop: false,
-        child: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).requestFocus(FocusNode());
-          },
-          child: Scaffold(
-            key: scaffoldKey,
-            backgroundColor: widget.scaffoldBackgroundColor,
-            appBar: widget.showAppBar ? _getAppBar : null,
-            drawerEnableOpenDragGesture: widget.showMenu,
-            body: SafeArea(
-              bottom: false,
-              child: Container(
-                height: double.infinity,
-                width: double.infinity,
-                padding: EdgeInsets.all(
-                  widget.hasDefaultPadding ? AppSizes.padding.large! : 0,
+      canPop: false,
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: widget.scaffoldBackgroundColor,
+          appBar: widget.showAppBar ? _getAppBar : null,
+          drawerEnableOpenDragGesture: widget.showMenu,
+          body: SafeArea(
+            bottom: false,
+            child: Container(
+              height: double.infinity,
+              width: double.infinity,
+              padding: EdgeInsets.all(
+                widget.hasDefaultPadding ? AppSizes.padding.large! : 0,
+              ),
+              decoration: switch (widget.bodyRadiusType) {
+                BodyRadiusType.leftOnly => _boxDecorationLeftRadius,
+                BodyRadiusType.curved => _boxDecorationCurvedRadius,
+                BodyRadiusType.linear => _boxDecorationLinear,
+              },
+              child: Skeletonizer(
+                enabled: widget.isLoading,
+                containersColor: AppColors.lightGrey,
+                effect: ShimmerEffect(
+                  baseColor: AppColors.grey.withAlpha(80),
+                  highlightColor: AppColors.grey.withAlpha(60),
                 ),
-                decoration: switch (widget.bodyRadiusType) {
-                  BodyRadiusType.leftOnly => _boxDecorationLeftRadius,
-                  BodyRadiusType.curved => _boxDecorationCurvedRadius,
-                  BodyRadiusType.linear => _boxDecorationLinear,
-                },
-                child: Skeletonizer(
-                  enabled: widget.isLoading,
-                  containersColor: AppColors.lightGrey,
-                  effect: ShimmerEffect(
-                    baseColor: AppColors.grey.withAlpha(80),
-                    highlightColor: AppColors.grey.withAlpha(60),
-                  ),
-                  child: widget.child,
-                ),
+                child: widget.child,
               ),
             ),
-            resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
           ),
+          resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
         ),
-      );
+      ),
+    );
   }
 
   AppBar get _getAppBar {
@@ -108,30 +104,23 @@ class _AppScaffoldWidgetState extends State<AppScaffoldWidget> {
     return widget.leading ??
         (widget.showMenu
             ? IconButton(
-                onPressed: () {
-                  scaffoldKey.currentState?.openDrawer();
-                },
-                icon: Icon(
-                  Icons.menu,
-                  size: AppSizes.icons.extraSmall,
-                ),
-              )
+              onPressed: () {
+                scaffoldKey.currentState?.openDrawer();
+              },
+              icon: Icon(Icons.menu, size: AppSizes.icons.extraSmall),
+            )
             : const SizedBox.shrink());
   }
 
   BoxDecoration get _boxDecorationLinear {
-    return BoxDecoration(
-      color: widget.bodyBackgroundColor,
-    );
+    return BoxDecoration(color: widget.bodyBackgroundColor);
   }
 
   BoxDecoration get _boxDecorationLeftRadius {
     return BoxDecoration(
       color: widget.bodyBackgroundColor,
       borderRadius: BorderRadius.only(
-        topRight: Radius.circular(
-          _radiusCircular,
-        ),
+        topRight: Radius.circular(_radiusCircular),
       ),
     );
   }
@@ -140,12 +129,8 @@ class _AppScaffoldWidgetState extends State<AppScaffoldWidget> {
     return BoxDecoration(
       color: widget.bodyBackgroundColor,
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(
-          _radiusCircular,
-        ),
-        topRight: Radius.circular(
-          _radiusCircular,
-        ),
+        topLeft: Radius.circular(_radiusCircular),
+        topRight: Radius.circular(_radiusCircular),
       ),
     );
   }
