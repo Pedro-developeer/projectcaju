@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projectcaju/modules/common/views/controller/home_controller.dart';
-import 'package:projectcaju/modules/common/routes/commons_routes.dart';
 import 'package:projectcaju/modules/common/views/widgets/card_news.dart';
-import 'package:projectcaju/modules/common/views/widgets/tiker_flag.dart';
+
 import 'package:provider/provider.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 class HomeView1 extends StatefulWidget {
   const HomeView1({super.key});

@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projectcaju/modules/common/themes/colors.dart';
-import 'package:projectcaju/modules/common/themes/sizes.dart';
+import 'package:projectcaju/core/themes/colors.dart';
+import 'package:projectcaju/core/themes/sizes.dart';
 
 
 class AppTheme {

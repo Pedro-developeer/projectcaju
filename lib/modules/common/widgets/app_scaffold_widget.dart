@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projectcaju/modules/common/themes/colors.dart';
-import 'package:projectcaju/modules/common/themes/sizes.dart';
+import 'package:projectcaju/core/themes/colors.dart';
+import 'package:projectcaju/core/themes/sizes.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 enum BodyRadiusType { leftOnly, curved, linear }

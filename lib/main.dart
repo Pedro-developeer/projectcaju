@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projectcaju/modules/common/injectors/dependency_injectors.dart';
-import 'package:projectcaju/modules/common/themes/themes.dart';
+import 'package:projectcaju/core/injectors/dependency_injectors.dart';
+import 'package:projectcaju/core/themes/themes.dart';
 import 'package:projectcaju/modules/home/routes/home_routes.dart';
 import 'package:projectcaju/routes.dart';
 

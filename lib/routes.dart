@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectcaju/modules/common/routes/commons_routes.dart';
+import 'package:projectcaju/core/routes/commons_routes.dart';
 import 'package:projectcaju/modules/home/routes/home_routes.dart';
 
 class Routes {

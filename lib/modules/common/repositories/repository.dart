@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart';
 import 'package:projectcaju/configs/config.dart';
-import 'package:projectcaju/modules/common/constants/string_constants.dart';
-import 'package:projectcaju/modules/common/interceptor/interceptor.dart';
+import 'package:projectcaju/core/constants/string_constants.dart';
+import 'package:projectcaju/core/interceptor/interceptor.dart';
 import 'package:http_interceptor/http_interceptor.dart';
 
 class Repository {
