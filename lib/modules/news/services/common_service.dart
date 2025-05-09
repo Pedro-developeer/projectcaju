@@ -1,17 +1,14 @@
 import 'dart:convert';
 
 import 'package:projectcaju/modules/news/models/news_model.dart';
-import 'package:projectcaju/modules/news/repositories/common_repository.dart';
+import 'package:projectcaju/modules/news/repositories/news_repository.dart';
 
+class NewsService {
+  final NewsRepository commonRepository;
 
-class CommonService {
- final CommonRepository commonRepository;
- 
-  CommonService({
-    required this.commonRepository,
-  });
+  NewsService({required this.commonRepository});
 
- Future<NewsModel> getNewsArchive() async {
+  Future<NewsModel> getNewsArchive() async {
     try {
       final Map<String, dynamic> response = jsonDecode(
         await commonRepository.getNewsArchive(),
@@ -22,5 +19,4 @@ class CommonService {
       rethrow;
     }
   }
-
 }

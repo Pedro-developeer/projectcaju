@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:projectcaju/modules/news/models/news_model.dart';
 import 'package:projectcaju/modules/news/services/common_service.dart';
 
-
-class CommonController extends ChangeNotifier {
-  final CommonService commonService;
-  CommonController({required this.commonService});
+class NewsController extends ChangeNotifier {
+  final NewsService commonService;
+  NewsController({required this.commonService});
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
