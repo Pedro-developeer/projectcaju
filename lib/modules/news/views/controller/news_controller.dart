@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectcaju/modules/news/models/news_model.dart';
-import 'package:projectcaju/modules/news/services/common_service.dart';
+import 'package:projectcaju/modules/news/services/news_service.dart';
 
 class NewsController extends ChangeNotifier {
   final NewsService commonService;

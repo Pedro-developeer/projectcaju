@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart';
 import 'package:projectcaju/configs/config.dart';
 import 'package:projectcaju/core/constants/string_constants.dart';
 import 'package:projectcaju/core/interceptor/interceptor.dart';

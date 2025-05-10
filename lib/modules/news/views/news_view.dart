@@ -6,6 +6,8 @@ import 'package:projectcaju/core/themes/colors.dart';
 import 'package:projectcaju/modules/news/strings/news_strings.dart';
 import 'package:projectcaju/modules/news/views/controller/news_controller.dart';
 import 'package:projectcaju/modules/news/views/widgets/list_view_news.dart';
+import 'package:projectcaju/modules/news/views/widgets/prymary_button.dart';
+import 'package:projectcaju/modules/news/routes/news_routes.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -70,9 +72,24 @@ class _HomeViewState extends State<NewsView> {
                         ),
                       ),
                       Center(
-                        child: ElevatedButton(
+                        child: AppPrimaryButton(
                           onPressed: () {},
-                          child: Text('Search for a user’s avatar'),
+                          text: 'Search for a user’s avatar',
+                          backgroundColor: AppColors.buttonColorBackground,
+                          boundaryColor: AppColors.buttonColorBoundary,
+                          styles: StylesFontConstants.titleButton,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Center(
+                        child: AppPrimaryButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(NewsRoutes.worlds);
+                          },
+                          text: 'Check available worlds',
+                          backgroundColor: AppColors.colorBackground,
+                          boundaryColor: AppColors.fontColor,
+                          styles: StylesFontConstants.titleButtonSecondary,
                         ),
                       ),
                       ListNewsSection(
