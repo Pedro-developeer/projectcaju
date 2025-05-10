@@ -60,21 +60,21 @@ class _HomeViewState extends State<NewsView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Image(
-                    image: AssetImage(ImagesConstants.imageAvatarSearch),
-                    height: 160,
-                  ),
-                ),
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Search for a user’s avatar'),
-                  ),
-                ),
                 Expanded(
                   child: ListView(
                     children: [
+                      Center(
+                        child: Image(
+                          image: AssetImage(ImagesConstants.imageAvatarSearch),
+                          height: 160,
+                        ),
+                      ),
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Search for a user’s avatar'),
+                        ),
+                      ),
                       ListNewsSection(
                         icon: MingCuteIcons.mgc_code_line,
                         title: 'Development News',

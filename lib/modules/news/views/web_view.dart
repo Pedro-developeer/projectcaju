@@ -54,6 +54,12 @@ class _WebviewViewState extends State<WebviewView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: AppColors.colorBackground),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         backgroundColor: AppColors.appBarBackground,
         title: Text('Leitor', style: StylesFontConstants.title),
         centerTitle: true,

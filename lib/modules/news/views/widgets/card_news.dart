@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
-import 'package:projectcaju/modules/news/views/widgets/tiker_flag.dart';
-
 class CardNews extends StatelessWidget {
   const CardNews({
     super.key,
@@ -29,34 +27,24 @@ class CardNews extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 8),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.fontColor, width: 2.5),
+            border: Border.all(color: AppColors.fontColor, width: 1.5),
             borderRadius: BorderRadius.circular(2),
           ),
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  ListTile(
-                    leading: Icon(icon, color: AppColors.fontColor, size: 40),
-                    title: Text(
-                      title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: StylesFontConstants.content,
-                    ),
-                    subtitle: Text(
-                      date,
-                      style: StylesFontConstants.contentSecondary,
-                    ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      color: AppColors.fontColor,
-                      size: 15,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+          child: ListTile(
+            onTap: onTap,
+            leading: Icon(icon, color: AppColors.fontColor, size: 27),
+            title: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: StylesFontConstants.content,
+            ),
+            subtitle: Text(date, style: StylesFontConstants.contentSecondary),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: AppColors.fontColor,
+              size: 19,
+            ),
           ),
         ),
       ),

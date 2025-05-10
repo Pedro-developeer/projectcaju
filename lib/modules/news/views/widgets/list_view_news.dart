@@ -5,6 +5,7 @@ import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/modules/home/routes/home_routes.dart';
 import 'package:projectcaju/modules/news/models/news_model.dart';
 import 'package:projectcaju/modules/news/views/controller/news_controller.dart';
+import 'package:projectcaju/modules/news/views/web_view.dart';
 import 'package:projectcaju/modules/news/views/widgets/card_news.dart';
 
 class ListNewsSection extends StatelessWidget {
@@ -56,14 +57,8 @@ class ListNewsSection extends StatelessWidget {
               icon: icon,
               onTap: () {
                 Navigator.of(context).pushNamed(
-                  NewsRoutes.newsDetail,
-                  arguments: {
-                    'url': newsItem.url,
-                    'title': newsItem.news,
-                    'subtitle': newsItem.category,
-                    'date': newsItem.date,
-                    'tickerTitle': newsItem.type,
-                  },
+                  NewsRoutes.webView,
+                  arguments: WebViewArguments(url: newsItem.url),
                 );
               },
             );
