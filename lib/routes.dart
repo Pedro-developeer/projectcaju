@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projectcaju/modules/home/routes/home_routes.dart';
+import 'package:projectcaju/modules/news/routes/news_routes.dart';
+import 'package:projectcaju/modules/worlds/routes/worlds_routes.dart';
 
 class Routes {
-  static Map<String, Widget> map = {...NewsRoutes.map};
+  static Map<String, Widget> map = {...NewsRoutes.map, ...WorldsRoutes.map};
 
   static Route<dynamic> generate(RouteSettings settings) {
     if (map.containsKey(settings.name)) {

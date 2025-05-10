@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:projectcaju/core/injectors/dependency_injectors.dart';
 import 'package:projectcaju/core/themes/themes.dart';
-import 'package:projectcaju/modules/home/routes/home_routes.dart';
+import 'package:projectcaju/modules/news/routes/news_routes.dart';
 import 'package:projectcaju/routes.dart';
 
 Future<void> main() async {
