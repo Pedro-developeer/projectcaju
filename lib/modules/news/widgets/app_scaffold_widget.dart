@@ -75,10 +75,10 @@ class _AppScaffoldWidgetState extends State<AppScaffoldWidget> {
               },
               child: Skeletonizer(
                 enabled: widget.isLoading,
-                containersColor: AppColors.lightGrey,
+                containersColor: AppColors.white,
                 effect: ShimmerEffect(
-                  baseColor: AppColors.grey.withAlpha(80),
-                  highlightColor: AppColors.grey.withAlpha(60),
+                  baseColor: AppColors.white.withAlpha(80),
+                  highlightColor: AppColors.white.withAlpha(60),
                 ),
                 child: widget.child,
               ),
