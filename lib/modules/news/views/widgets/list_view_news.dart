@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:projectcaju/core/constants/padding_constants.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
-import 'package:projectcaju/modules/home/routes/home_routes.dart';
+import 'package:projectcaju/modules/news/routes/news_routes.dart';
 import 'package:projectcaju/modules/news/models/news_model.dart';
 import 'package:projectcaju/modules/news/views/controller/news_controller.dart';
 import 'package:projectcaju/modules/news/views/web_view.dart';
@@ -49,10 +50,15 @@ class ListNewsSection extends StatelessWidget {
             }
 
             final newsItem = newsList[index];
+            final formattedDate = DateFormat(
+              'd MMMM y',
+              'en_US',
+            ).format(DateTime.parse(newsItem.date));
+
             return CardNews(
               title: newsItem.news,
               subtitle: newsItem.category,
-              date: newsItem.date,
+              date: formattedDate,
               tickerTitle: newsItem.type,
               icon: icon,
               onTap: () {
