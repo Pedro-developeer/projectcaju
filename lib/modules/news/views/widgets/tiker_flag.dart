@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projectcaju/core/constants/styles_font_constants.dart';
+import 'package:projectcaju/core/themes/colors.dart';
 
 class TickerFlag extends StatelessWidget {
   const TickerFlag({super.key, required this.title});
@@ -8,19 +10,16 @@ class TickerFlag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 30,
+      width: 60,
       decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(2),
+        color: AppColors.tickerColor,
+        borderRadius: BorderRadius.circular(8),
       ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
+      child: Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+          child: Text(title, style: StylesFontConstants.contentSecondaryDark),
         ),
       ),
     );

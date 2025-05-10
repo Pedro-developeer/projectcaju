@@ -33,4 +33,24 @@ class NewsController extends ChangeNotifier {
       changeIsLoading(false);
     }
   }
+
+  List<News> getDevelopmentNews() {
+    return _filterNewsByCategory('development');
+  }
+
+  List<News> getCommunityNews() {
+    return _filterNewsByCategory('community');
+  }
+
+  List<News> getTechnicalNews() {
+    return _filterNewsByCategory('technical');
+  }
+
+  List<News> _filterNewsByCategory(String category) {
+    return newsModel.news
+            ?.where((item) => item.category.toLowerCase() == category)
+            .take(10)
+            .toList() ??
+        [];
+  }
 }

@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projectcaju/core/themes/colors.dart';
 import 'package:projectcaju/core/themes/sizes.dart';
-
 
 class AppTheme {
   static ThemeData light = ThemeData(
@@ -14,79 +12,53 @@ class AppTheme {
     primarySwatch: AppColors.primarySwatch,
     primaryColor: AppColors.primary,
     textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: AppColors.grey,
-      selectionColor: AppColors.grey,
-      selectionHandleColor: AppColors.lightBlue,
+      cursorColor: AppColors.white,
+      selectionColor: AppColors.white,
+      selectionHandleColor: AppColors.white,
     ),
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.colorBackground,
     cardColor: AppColors.white,
     appBarTheme: AppBarTheme(
       centerTitle: true,
       elevation: 1,
       backgroundColor: AppColors.primary,
       titleTextStyle: TextStyle(
-        color: AppColors.white,
+        color: AppColors.fontColor,
         fontSize: AppSizes.font.gigantic!,
       ),
-      iconTheme: const IconThemeData(
-        color: AppColors.white,
-      ),
-      actionsIconTheme: const IconThemeData(
-        color: AppColors.white,
-      ),
+      iconTheme: const IconThemeData(color: AppColors.fontColor),
+      actionsIconTheme: const IconThemeData(color: AppColors.fontColor),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      floatingLabelStyle: const TextStyle(
-        color: AppColors.primary,
-      ),
+      floatingLabelStyle: const TextStyle(color: AppColors.primary),
       errorBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: AppColors.error,
-        ),
+        borderSide: const BorderSide(color: AppColors.white),
         borderRadius: BorderRadius.all(
-          Radius.circular(
-            AppSizes.radius.small ?? 0,
-          ),
+          Radius.circular(AppSizes.radius.small ?? 0),
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: AppColors.error,
-        ),
+        borderSide: const BorderSide(color: AppColors.white),
         borderRadius: BorderRadius.all(
-          Radius.circular(
-            AppSizes.radius.small ?? 0,
-          ),
+          Radius.circular(AppSizes.radius.small ?? 0),
         ),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: AppColors.primary,
-        ),
+        borderSide: const BorderSide(color: AppColors.primary),
         borderRadius: BorderRadius.all(
-          Radius.circular(
-            AppSizes.radius.small ?? 0,
-          ),
+          Radius.circular(AppSizes.radius.small ?? 0),
         ),
       ),
       border: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: AppColors.darkGrey,
-        ),
+        borderSide: const BorderSide(color: AppColors.white),
         borderRadius: BorderRadius.all(
-          Radius.circular(
-            AppSizes.radius.small ?? 0,
-          ),
+          Radius.circular(AppSizes.radius.small ?? 0),
         ),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: AppColors.white,
-        ),
+        borderSide: const BorderSide(color: AppColors.white),
         borderRadius: BorderRadius.all(
-          Radius.circular(
-            AppSizes.radius.small ?? 0,
-          ),
+          Radius.circular(AppSizes.radius.small ?? 0),
         ),
       ),
     ),

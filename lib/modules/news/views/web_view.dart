@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+import 'package:projectcaju/core/constants/styles_font_constants.dart';
+import 'package:projectcaju/core/themes/colors.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+class WebViewArguments {
+  final String? url;
+
+  WebViewArguments({required this.url});
+}
+
+class WebviewView extends StatefulWidget {
+  const WebviewView({super.key});
+
+  @override
+  State<WebviewView> createState() => _WebviewViewState();
+}
+
+class _WebviewViewState extends State<WebviewView> {
+  late WebViewController _controller;
+  bool loading = true;
+  late WebViewArguments? args;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        WebViewController()
+          ..setJavaScriptMode(JavaScriptMode.unrestricted)
+          ..setNavigationDelegate(
+            NavigationDelegate(
+              onPageStarted: (String url) {
+                setState(() {
+                  loading = true;
+                });
+              },
+              onPageFinished: (String url) {
+                setState(() {
+                  loading = false;
+                });
+              },
+            ),
+          );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    args = ModalRoute.of(context)!.settings.arguments as WebViewArguments;
+    _controller.loadRequest(Uri.parse(args?.url ?? ''));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.appBarBackground,
+        title: Text('Leitor', style: StylesFontConstants.title),
+        centerTitle: true,
+      ),
+      body: Stack(
+        children: [
+          WebViewWidget(controller: _controller),
+          if (loading) const Center(child: CircularProgressIndicator()),
+        ],
+      ),
+    );
+  }
+}

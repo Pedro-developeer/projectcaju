@@ -17,31 +17,14 @@ class _HomeViewState extends State<HomeView2> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-  
           ShadButton(
-  child: const Text('Primary'),
-  onPressed: () {
-     Navigator.of(context).pushNamed(HomeRoutes.home1);
-    
-  },
-)
+            child: const Text('Primary'),
+            onPressed: () {
+              Navigator.of(context).pushNamed(NewsRoutes.news);
+            },
+          ),
         ],
       ),
     );
   }
-  // login(){
-  //   context.read<CommonController>().login(passwords: '123212213').then((value) {
-  //      ScaffoldMessenger.of(context).showSnackBar(
-  //         const SnackBar(
-  //           content: Text('Sucesso!'),
-  //         ),
-  //       );
-  //   }).catchError((error) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //         const SnackBar(
-  //           content: Text('Erro!'),
-  //         ),
-  //       );
-  //   });
-  // }
 }

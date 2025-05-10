@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projectcaju/core/routes/commons_routes.dart';
 import 'package:projectcaju/modules/home/routes/home_routes.dart';
 
 class Routes {
-  static Map<String, Widget> map = {
-    ...CommonsRoutes.map,
-    ...HomeRoutes.map,
-  };
+  static Map<String, Widget> map = {...NewsRoutes.map};
 
   static Route<dynamic> generate(RouteSettings settings) {
     if (map.containsKey(settings.name)) {
@@ -21,11 +17,7 @@ class Routes {
 
   static Route<dynamic> get _errorRoute {
     return MaterialPageRoute(
-      builder: (context) => const Scaffold(
-        body: Center(
-          child: Text('Error'),
-        ),
-      ),
+      builder: (context) => const Scaffold(body: Center(child: Text(''))),
     );
   }
 }
