@@ -37,6 +37,15 @@ class _CharacterViewState extends State<CharacterView> {
       child: Scaffold(
         backgroundColor: AppColors.colorBackgroundSecondary,
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: AppColors.colorBackground,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
           centerTitle: false,
           backgroundColor: AppColors.appBarBackground,
           title: Text(

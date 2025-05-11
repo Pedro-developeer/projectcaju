@@ -4,8 +4,8 @@ import 'package:projectcaju/modules/news/models/news_model.dart';
 import 'package:projectcaju/modules/news/services/news_service.dart';
 
 class NewsController extends ChangeNotifier {
-  final NewsService commonService;
-  NewsController({required this.commonService});
+  final NewsService newsService;
+  NewsController({required this.newsService});
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
@@ -31,13 +31,12 @@ class NewsController extends ChangeNotifier {
   Future<CharacterModel> getCharacterByName({required String name}) async {
     try {
       changeIsLoading(true);
-      final CharacterModel characterModel = await commonService
+      final CharacterModel characterModel = await newsService
           .getCharacterByName(name: name);
       changeCharacterModel(characterModel);
       changeIsLoading(false);
       return characterModel;
     } catch (e) {
-      print(e);
       rethrow;
     } finally {
       changeIsLoading(false);
@@ -47,7 +46,7 @@ class NewsController extends ChangeNotifier {
   Future<NewsModel> getNewsTibiaApi() async {
     try {
       changeIsLoading(true);
-      final NewsModel news = await commonService.getNewsArchive();
+      final NewsModel news = await newsService.getNewsArchive();
       changeNewsModel(news);
       changeIsLoading(false);
       return news;

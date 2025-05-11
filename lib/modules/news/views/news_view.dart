@@ -10,6 +10,7 @@ import 'package:projectcaju/modules/news/views/controller/news_controller.dart';
 import 'package:projectcaju/modules/news/views/widgets/list_view_news.dart';
 import 'package:projectcaju/modules/news/views/widgets/prymary_button.dart';
 import 'package:projectcaju/modules/news/routes/news_routes.dart';
+import 'package:projectcaju/modules/news/views/widgets/show_modal_character.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -76,69 +77,26 @@ class _HomeViewState extends State<NewsView> {
                       Center(
                         child: AppPrimaryButton(
                           onPressed: () {
-                            showDialog(
+                            showModalSearchCharacter(
                               context: context,
-                              builder: (BuildContext context) {
-                                String inputText = '';
-                                return AlertDialog(
-                                  title: const Text('Enter a username'),
-                                  content: TextField(
-                                    onChanged: (value) {
-                                      inputText = value;
-                                    },
-                                    decoration: const InputDecoration(
-                                      hintText: "Username",
-                                    ),
-                                  ),
-                                  actions: [
-                                    ElevatedButton(
-                                      onPressed: () async {
-                                        try {
-                                          final characterModel =
-                                              await controller
-                                                  .getCharacterByName(
-                                                    name: inputText,
-                                                  );
-                                          Navigator.of(context).pop();
-                                          if (mounted) {
-                                            Navigator.of(context).pushNamed(
-                                              CharacterRoutes.character,
-                                              arguments: CharacterArguments(characterModel: characterModel),
-                                            );
-                                          }
-                                        } catch (e) {
-                                          Navigator.of(context).pop();
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                'Failed to fetch character data.',
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                      },
-                                      child: const Text("Confirm"),
-                                    ),
-                                  ],
-                                );
-                              },
+                              getCharacterByName:
+                                  (name) => controller.getCharacterByName(name: name),
                             );
                           },
-                          text: 'Search for a user’s avatar',
+                          text: NewsStrings.searchForUser,
                           backgroundColor: AppColors.buttonColorBackground,
                           boundaryColor: AppColors.buttonColorBoundary,
                           styles: StylesFontConstants.titleButton,
                         ),
                       ),
+
                       const SizedBox(height: 10),
                       Center(
                         child: AppPrimaryButton(
                           onPressed: () {
                             Navigator.of(context).pushNamed(NewsRoutes.worlds);
                           },
-                          text: 'Check available worlds',
+                          text: NewsStrings.checkAvailableWorlds,
                           backgroundColor: AppColors.colorBackground,
                           boundaryColor: AppColors.fontColor,
                           styles: StylesFontConstants.titleButtonSecondary,
@@ -146,21 +104,21 @@ class _HomeViewState extends State<NewsView> {
                       ),
                       ListNewsSection(
                         icon: MingCuteIcons.mgc_code_line,
-                        title: 'Development News',
+                        title: NewsStrings.developmentNews,
                         newsList: developmentNews,
                         isLoading: isLoading,
                         controller: controller,
                       ),
                       ListNewsSection(
                         icon: MingCuteIcons.mgc_group_3_line,
-                        title: 'Community News',
+                        title: NewsStrings.communityNews,
                         newsList: communityNews,
                         isLoading: isLoading,
                         controller: controller,
                       ),
                       ListNewsSection(
                         icon: MingCuteIcons.mgc_terminal_box_line,
-                        title: 'Technical News',
+                        title: NewsStrings.technicalNews,
                         newsList: technicalNews,
                         isLoading: isLoading,
                         controller: controller,

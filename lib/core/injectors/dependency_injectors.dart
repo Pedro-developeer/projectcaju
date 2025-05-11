@@ -41,7 +41,7 @@ class DependencyInjector extends StatelessWidget {
 
   // Services
 
-  Provider get _commonService {
+  Provider get _newsService {
     return Provider<NewsService>(
       create:
           (context) =>
@@ -57,11 +57,12 @@ class DependencyInjector extends StatelessWidget {
     );
   }
 
-    Provider get _characterService {
+  Provider get _characterService {
     return Provider<CharacterService>(
       create:
-          (context) =>
-              CharacterService(characterRepository: context.read<CharacterRepository>()),
+          (context) => CharacterService(
+            characterRepository: context.read<CharacterRepository>(),
+          ),
     );
   }
 
@@ -70,8 +71,7 @@ class DependencyInjector extends StatelessWidget {
   ChangeNotifierProvider get _newsController {
     return ChangeNotifierProvider<NewsController>(
       create:
-          (context) =>
-              NewsController(commonService: context.read<NewsService>()),
+          (context) => NewsController(newsService: context.read<NewsService>()),
     );
   }
 
@@ -83,11 +83,12 @@ class DependencyInjector extends StatelessWidget {
     );
   }
 
-    ChangeNotifierProvider get _characterController {
+  ChangeNotifierProvider get _characterController {
     return ChangeNotifierProvider<CharacterController>(
       create:
-          (context) =>
-              CharacterController( characterService:  context.read<CharacterService>()),
+          (context) => CharacterController(
+            characterService: context.read<CharacterService>(),
+          ),
     );
   }
 
@@ -101,14 +102,14 @@ class DependencyInjector extends StatelessWidget {
         _characterRepository,
 
         // Services
-        _commonService,
+        _newsService,
         _worldsService,
         _characterService,
 
         // Controllers
         _newsController,
         _worldsController,
-        _characterController
+        _characterController,
       ],
       child: child,
     );
