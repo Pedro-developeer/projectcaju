@@ -1,0 +1,5 @@
+class CharacterStrings {
+  static const String newsErrorString = 'Erro ao carregar notícias';
+  static const String newsTitleString = 'ScrollSeeker';
+  static const String newsSubtitleString = 'Notícias Rápidas';
+}

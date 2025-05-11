@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectcaju/modules/character/models/character_model.dart';
 import 'package:projectcaju/modules/news/models/news_model.dart';
 import 'package:projectcaju/modules/news/services/news_service.dart';
 
@@ -18,6 +19,29 @@ class NewsController extends ChangeNotifier {
   void changeNewsModel(NewsModel value) {
     _newsModel = value;
     notifyListeners();
+  }
+
+  CharacterModel _characterModel = CharacterModel();
+  CharacterModel get characterModel => _characterModel;
+  void changeCharacterModel(CharacterModel value) {
+    _characterModel = value;
+    notifyListeners();
+  }
+
+  Future<CharacterModel> getCharacterByName({required String name}) async {
+    try {
+      changeIsLoading(true);
+      final CharacterModel characterModel = await commonService
+          .getCharacterByName(name: name);
+      changeCharacterModel(characterModel);
+      changeIsLoading(false);
+      return characterModel;
+    } catch (e) {
+      print(e);
+      rethrow;
+    } finally {
+      changeIsLoading(false);
+    }
   }
 
   Future<NewsModel> getNewsTibiaApi() async {

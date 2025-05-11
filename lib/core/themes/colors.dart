@@ -8,6 +8,7 @@ class AppColors {
   static const Color primary = darkBlue;
   //App Tibia Colors
   static const Color colorBackground = Color(0xFFFFF1D9);
+  static const Color colorBackgroundSecondary = Color(0XFFFFEAC7);
   static const Color appBarBackground = Color(0xFF182A12);
   static const Color tickerColor = Color(0xFF2fd058);
   static const Color buttonColorBackground = Color(0xFF0525D9);

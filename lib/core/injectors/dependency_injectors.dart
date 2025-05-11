@@ -1,4 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:projectcaju/modules/character/repositories/character_repository.dart';
+import 'package:projectcaju/modules/character/services/character_service.dart';
+import 'package:projectcaju/modules/character/view/controllers/character_controller.dart';
 import 'package:projectcaju/modules/news/repositories/news_repository.dart';
 import 'package:projectcaju/modules/news/services/news_service.dart';
 import 'package:projectcaju/modules/news/views/controller/news_controller.dart';
@@ -15,7 +18,7 @@ class DependencyInjector extends StatelessWidget {
 
   // Repositories
 
-  Provider get _commonRepository {
+  Provider get _newsRepository {
     return Provider<NewsRepository>(
       create: (context) => NewsRepository(),
       lazy: true,
@@ -25,6 +28,13 @@ class DependencyInjector extends StatelessWidget {
   Provider get _worldsRepository {
     return Provider<WorldsRepository>(
       create: (context) => WorldsRepository(),
+      lazy: true,
+    );
+  }
+
+  Provider get _characterRepository {
+    return Provider<CharacterRepository>(
+      create: (context) => CharacterRepository(),
       lazy: true,
     );
   }
@@ -47,9 +57,17 @@ class DependencyInjector extends StatelessWidget {
     );
   }
 
+    Provider get _characterService {
+    return Provider<CharacterService>(
+      create:
+          (context) =>
+              CharacterService(characterRepository: context.read<CharacterRepository>()),
+    );
+  }
+
   // Controllers
 
-  ChangeNotifierProvider get _commonController {
+  ChangeNotifierProvider get _newsController {
     return ChangeNotifierProvider<NewsController>(
       create:
           (context) =>
@@ -65,21 +83,32 @@ class DependencyInjector extends StatelessWidget {
     );
   }
 
+    ChangeNotifierProvider get _characterController {
+    return ChangeNotifierProvider<CharacterController>(
+      create:
+          (context) =>
+              CharacterController( characterService:  context.read<CharacterService>()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         // Repositories
-        _commonRepository,
+        _newsRepository,
         _worldsRepository,
+        _characterRepository,
 
         // Services
         _commonService,
         _worldsService,
+        _characterService,
 
         // Controllers
-        _commonController,
+        _newsController,
         _worldsController,
+        _characterController
       ],
       child: child,
     );

@@ -3,6 +3,8 @@ import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:projectcaju/core/constants/image_constants.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
+import 'package:projectcaju/modules/character/routes/character_routes.dart';
+import 'package:projectcaju/modules/character/view/character_view.dart';
 import 'package:projectcaju/modules/news/strings/news_strings.dart';
 import 'package:projectcaju/modules/news/views/controller/news_controller.dart';
 import 'package:projectcaju/modules/news/views/widgets/list_view_news.dart';
@@ -73,7 +75,57 @@ class _HomeViewState extends State<NewsView> {
                       ),
                       Center(
                         child: AppPrimaryButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                String inputText = '';
+                                return AlertDialog(
+                                  title: const Text('Enter a username'),
+                                  content: TextField(
+                                    onChanged: (value) {
+                                      inputText = value;
+                                    },
+                                    decoration: const InputDecoration(
+                                      hintText: "Username",
+                                    ),
+                                  ),
+                                  actions: [
+                                    ElevatedButton(
+                                      onPressed: () async {
+                                        try {
+                                          final characterModel =
+                                              await controller
+                                                  .getCharacterByName(
+                                                    name: inputText,
+                                                  );
+                                          Navigator.of(context).pop();
+                                          if (mounted) {
+                                            Navigator.of(context).pushNamed(
+                                              CharacterRoutes.character,
+                                              arguments: CharacterArguments(characterModel: characterModel),
+                                            );
+                                          }
+                                        } catch (e) {
+                                          Navigator.of(context).pop();
+                                          ScaffoldMessenger.of(
+                                            context,
+                                          ).showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                'Failed to fetch character data.',
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                      },
+                                      child: const Text("Confirm"),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
                           text: 'Search for a user’s avatar',
                           backgroundColor: AppColors.buttonColorBackground,
                           boundaryColor: AppColors.buttonColorBoundary,

@@ -7,7 +7,7 @@ import 'package:projectcaju/modules/worlds/views/widgets/card_world_widget.dart'
 import 'package:projectcaju/modules/worlds/views/widgets/lisview_worlds.dart';
 import 'package:projectcaju/modules/worlds/views/widgets/tile_player_secondary.dart';
 import 'package:projectcaju/modules/worlds/views/widgets/tile_player_world.dart';
-import 'package:projectcaju/modules/worlds/views/widgets/world_string.dart';
+import 'package:projectcaju/modules/worlds/strings/world_string.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -46,12 +46,22 @@ class _HomeViewState extends State<WorldsView> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: false,
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: AppColors.colorBackground,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
             backgroundColor: AppColors.appBarBackground,
             title: Text(
               WorldsStrings.appBarTitle,
               style: StylesFontConstants.title,
             ),
           ),
+
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Column(

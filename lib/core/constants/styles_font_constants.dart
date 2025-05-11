@@ -17,6 +17,13 @@ class StylesFontConstants {
     color: AppColors.fontColor,
   );
 
+  static final TextStyle subtitleTile = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Roboto',
+    color: AppColors.fontColor,
+  );
+
   static final TextStyle subtitleWorldsSecondaryTile = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
