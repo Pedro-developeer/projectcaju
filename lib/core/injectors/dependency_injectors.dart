@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:projectcaju/modules/news/repositories/news_repository.dart';
 import 'package:projectcaju/modules/news/services/news_service.dart';
 import 'package:projectcaju/modules/news/views/controller/news_controller.dart';
-import 'package:projectcaju/modules/worlds/controllers/worlds_controller.dart';
+import 'package:projectcaju/modules/worlds/views/controllers/worlds_controller.dart';
 import 'package:projectcaju/modules/worlds/repositories/worlds_repository.dart';
 import 'package:projectcaju/modules/worlds/services/worlds_service.dart';
 

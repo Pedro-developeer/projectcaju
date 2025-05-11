@@ -1,3 +1,5 @@
+import 'package:projectcaju/core/constants/image_constants.dart';
+
 class TibiaWorlds {
   final Worlds? worlds;
   final Information? information;
@@ -103,11 +105,16 @@ class RegularWorld {
   });
 
   factory RegularWorld.fromJson(Map<String, dynamic> json) {
+    String rawLocation = json['location'] ?? 'Unknown Location';
+    String rawStatus = json['status'] ?? 'Unknown Status';
+    String locationWithEmoji = _getLocationWithEmoji(rawLocation);
+    String statusWithEmoji = _getStatusImage(rawStatus);
+
     return RegularWorld(
       name: json['name'] ?? 'Unknown World',
-      status: json['status'] ?? 'Unknown Status',
+      status: statusWithEmoji,
       playersOnline: json['players_online'] ?? 0,
-      location: json['location'] ?? 'Unknown Location',
+      location: locationWithEmoji,
       pvpType: json['pvp_type'] ?? 'Unknown PvP Type',
       premiumOnly: json['premium_only'] ?? false,
       transferType: json['transfer_type'] ?? 'Unknown Transfer',
@@ -116,6 +123,33 @@ class RegularWorld {
       gameWorldType: json['game_world_type'] ?? 'Regular',
       tournamentWorldType: json['tournament_world_type'] ?? 'None',
     );
+  }
+
+  static String _getLocationWithEmoji(String location) {
+    switch (location) {
+      case 'North America':
+        return '🇺🇸';
+      case 'South America':
+        return '🇧🇷';
+      case 'Europe':
+        return '🇪🇺';
+      case 'Oceania':
+        return '🇦🇺';
+      default:
+        return '🏳️';
+    }
+  }
+}
+
+String _getStatusImage(String? status) {
+  if (status == null) return ImagesConstants.manutencao;
+  switch (status.toLowerCase()) {
+    case 'online':
+      return ImagesConstants.online;
+    case 'offline':
+      return ImagesConstants.offline;
+    default:
+      return ImagesConstants.manutencao;
   }
 }
 
