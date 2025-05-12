@@ -4,8 +4,6 @@
 
 Aplicativo mobile dedicado ao universo do Tibia, com foco em exploração de conteúdo, utilidades e informações para jogadores.
 
----
-
 ## 📂 Estrutura do projeto
 
 O projeto está organizado de forma modular, onde cada nova funcionalidade do app é implementada dentro de seu respectivo módulo.
@@ -20,7 +18,7 @@ O projeto está organizado de forma modular, onde cada nova funcionalidade do ap
 │   └── fonts
 └── lib/
     ├── modules/ 
-    │   ├── common/
+    │   ├── common/ /
     │   │   ├── configs
     │   │   ├── constants
     │   │   ├── components
@@ -50,7 +48,6 @@ O projeto está organizado de forma modular, onde cada nova funcionalidade do ap
     ├── routes 
     └── main.dart 
 ```
-
 ---
 
 ## 🚀 Iniciando o desenvolvimento
@@ -64,25 +61,22 @@ cd projectcaju
 
 # Instale as dependências
 flutter pub get
+
 ```
 
 Abra o projeto na sua IDE de preferência e rode em um emulador ou dispositivo físico.
-
----
 
 ## 🔗 Links úteis
 
 - [Flutter Docs](https://docs.flutter.dev/get-started/install)
 - [Tibia API](https://tibiadata.com/)
 
----
 
-## 📱 Screenshots
+![Screenshot_1747091643](https://github.com/user-attachments/assets/ac00b8ae-c7fb-49e6-bfb0-bb816dd22bf3) 
+![Screenshot_1747091777](https://github.com/user-attachments/assets/0e421a94-95c3-4ca5-ba8b-a25e755a8d24)
+![Screenshot_1747091857](https://github.com/user-attachments/assets/0b5f2b07-7df1-4804-bc0f-1ca31f97282b)
+![Screenshot_1747091720](https://github.com/user-attachments/assets/376369b6-bb90-4185-ba2a-b907095dd93e)
+![Screenshot_1747091688](https://github.com/user-attachments/assets/76458acd-ba21-4138-b785-f1cf77525858)
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/0b5f2b07-7df1-4804-bc0f-1ca31f97282b" width="200"/>
-  <img src="https://github.com/user-attachments/assets/376369b6-bb90-4185-ba2a-b907095dd93e" width="200"/>
-  <img src="https://github.com/user-attachments/assets/76458acd-ba21-4138-b785-f1cf77525858" width="200"/>
-  <img src="https://github.com/user-attachments/assets/ac00b8ae-c7fb-49e6-bfb0-bb816dd22bf3" width="200"/>
-  <img src="https://github.com/user-attachments/assets/0e421a94-95c3-4ca5-ba8b-a25e755a8d24" width="200"/>
-</div>
+
+
