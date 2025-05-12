@@ -45,7 +45,7 @@ class AppSizes {
     large: 200,
     extraLarge: 220,
     huge: 240,
-    gigantic: 260,
+    gigantic: 275,
     extraGigantic: 400,
   );
 

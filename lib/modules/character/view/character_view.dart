@@ -4,10 +4,13 @@ import 'package:projectcaju/core/constants/image_constants.dart';
 import 'package:projectcaju/core/constants/padding_constants.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
+import 'package:projectcaju/core/themes/sizes.dart';
 import 'package:projectcaju/modules/character/models/character_model.dart';
+import 'package:projectcaju/modules/character/strings/character_strings.dart';
 import 'package:projectcaju/modules/character/view/controllers/character_controller.dart';
 import 'package:projectcaju/modules/character/view/widgets/tile_charcter_info.dart';
 import 'package:provider/provider.dart';
+
 
 class CharacterArguments {
   final CharacterModel? characterModel;
@@ -25,6 +28,7 @@ class CharacterView extends StatefulWidget {
 class _CharacterViewState extends State<CharacterView> {
   late CharacterController controller;
   late CharacterArguments? args;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -50,7 +54,7 @@ class _CharacterViewState extends State<CharacterView> {
           centerTitle: false,
           backgroundColor: AppColors.appBarBackground,
           title: Text(
-            args?.characterModel?.character?.character?.name ?? 'Undefined',
+            args?.characterModel?.character?.character?.name ?? CharacterStrings.undefined,
             style: StylesFontConstants.title,
           ),
         ),
@@ -60,133 +64,80 @@ class _CharacterViewState extends State<CharacterView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                SizedBox(height: AppSizes.sizeComponents.huge),
                 Center(
                   child: Image(
-                    image:
-                        controller.getVocationImage(
-                          vocation:
-                              args
-                                  ?.characterModel
-                                  ?.character
-                                  ?.character
-                                  ?.vocation ??
-                              '',
+                    image: controller.getVocationImage(
+                          vocation: args?.characterModel?.character?.character?.vocation ?? '',
                         ) ??
                         AssetImage(ImagesConstants.knight),
-                    height: 275,
+                    height: AppSizes.images.gigantic,
                   ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: AppSizes.sizeComponents.huge),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_star_line,
-                  info: 'Level',
-                  infoComplement:
-                      args?.characterModel?.character?.character?.level
-                          .toString() ??
-                      'N/A',
+                  info: CharacterStrings.level,
+                  infoComplement: args?.characterModel?.character?.character?.level?.toString() ?? CharacterStrings.notAvailable,
                 ),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_sword_line,
-                  info: 'Vocation',
-                  infoComplement:
-                      args?.characterModel?.character?.character?.vocation ??
-                      'N/A',
+                  info: CharacterStrings.vocation,
+                  infoComplement: args?.characterModel?.character?.character?.vocation ?? CharacterStrings.notAvailable,
                 ),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_signal_line,
-                  info: 'Status',
-                  infoComplement:
-                      args
-                          ?.characterModel
-                          ?.character
-                          ?.character
-                          ?.accountStatus ??
-                      'N/A',
+                  info: CharacterStrings.status,
+                  infoComplement: args?.characterModel?.character?.character?.accountStatus ?? CharacterStrings.notAvailable,
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: AppSizes.sizeComponents.huge),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_world_2_line,
-                  info: 'World',
-                  infoComplement:
-                      args?.characterModel?.character?.character?.world ??
-                      'N/A',
+                  info: CharacterStrings.world,
+                  infoComplement: args?.characterModel?.character?.character?.world ?? CharacterStrings.notAvailable,
                 ),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_location_line,
-                  info: 'Residence',
-                  infoComplement:
-                      args?.characterModel?.character?.character?.residence ??
-                      'N/A',
+                  info: CharacterStrings.residence,
+                  infoComplement: args?.characterModel?.character?.character?.residence ?? CharacterStrings.notAvailable,
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: AppSizes.sizeComponents.huge),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_trophy_line,
-                  info: 'Achievement',
-                  infoComplement:
-                      args
-                          ?.characterModel
-                          ?.character
-                          ?.character
-                          ?.achievementPoints
-                          .toString() ??
-                      'N/A',
+                  info: CharacterStrings.achievement,
+                  infoComplement: args?.characterModel?.character?.character?.achievementPoints?.toString() ?? CharacterStrings.notAvailable,
                 ),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_key_2_line,
-                  info: 'Unlocked titles',
-                  infoComplement:
-                      args?.characterModel?.character?.character?.unlockedTitles
-                          .toString() ??
-                      'N/A',
+                  info: CharacterStrings.unlockedTitles,
+                  infoComplement: args?.characterModel?.character?.character?.unlockedTitles?.toString() ?? CharacterStrings.notAvailable,
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: AppSizes.sizeComponents.huge),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_male_line,
-                  info: 'Sex',
-                  infoComplement:
-                      args?.characterModel?.character?.character?.sex ?? 'N/A',
+                  info: CharacterStrings.sex,
+                  infoComplement: args?.characterModel?.character?.character?.sex ?? CharacterStrings.notAvailable,
                 ),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_calendar_add_line,
-                  info: 'Created on',
-                  infoComplement:
-                      args
-                          ?.characterModel
-                          ?.character
-                          ?.accountInformation
-                          ?.created ??
-                      'N/A',
+                  info: CharacterStrings.createdOn,
+                  infoComplement: args?.characterModel?.character?.accountInformation?.created ?? CharacterStrings.notAvailable,
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: AppSizes.sizeComponents.huge),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_badge_line,
-                  info: 'Account Status',
-                  infoComplement:
-                      args
-                          ?.characterModel
-                          ?.character
-                          ?.character
-                          ?.accountStatus ??
-                      'N/A',
+                  info: CharacterStrings.accountStatus,
+                  infoComplement: args?.characterModel?.character?.character?.accountStatus ?? CharacterStrings.notAvailable,
                 ),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_diamond_2_line,
-                  info: 'Loyalty points',
-                  infoComplement:
-                      args
-                          ?.characterModel
-                          ?.character
-                          ?.accountInformation
-                          ?.loyaltyTitle ??
-                      'N/A',
+                  info: CharacterStrings.loyaltyPoints,
+                  infoComplement: args?.characterModel?.character?.accountInformation?.loyaltyTitle ?? CharacterStrings.notAvailable,
                 ),
                 TileCharacterInfo(
                   icon: MingCuteIcons.mgc_time_line,
-                  info: 'Last login',
-                  infoComplement:
-                      args?.characterModel?.character?.character?.lastLogin ??
-                      'N/A',
+                  info: CharacterStrings.lastLogin,
+                  infoComplement: args?.characterModel?.character?.character?.lastLogin ?? CharacterStrings.notAvailable,
                 ),
               ],
             ),

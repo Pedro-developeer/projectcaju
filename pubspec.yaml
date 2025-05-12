@@ -45,6 +45,8 @@ dependencies:
   ming_cute_icons: ^0.0.7
   flutter_localization: ^0.3.2
   webview_flutter: ^4.11.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

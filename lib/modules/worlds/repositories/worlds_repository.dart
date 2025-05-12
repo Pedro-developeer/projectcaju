@@ -10,7 +10,6 @@ class WorldsRepository extends Repository {
       );
       return getResponseBody(response);
     } catch (e) {
-      print('Error in login: $e');
       rethrow;
     }
   }

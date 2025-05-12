@@ -10,7 +10,6 @@ class NewsRepository extends Repository {
       );
       return getResponseBody(response);
     } catch (e) {
-      print('Error $e');
       rethrow;
     }
   }
@@ -22,7 +21,6 @@ class NewsRepository extends Repository {
       );
       return getResponseBody(response);
     } catch (e) {
-     print('Error $e');
       rethrow;
     }
   }
