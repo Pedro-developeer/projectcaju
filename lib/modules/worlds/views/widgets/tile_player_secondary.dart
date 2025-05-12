@@ -15,23 +15,30 @@ class TilePlayerWordSecondary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 190,
-      height: 90,
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.fontColor, width: 1.5),
-        borderRadius: BorderRadius.circular(2),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: AppSizes.sizeComponents.large),
-            Text(title, style: StylesFontConstants.subtitleWorldsSecondaryTile),
-            Text(subtitle, style: StylesFontConstants.displayWorldsTileContent),
-          ],
+    return Flexible(
+      child: Container(
+        width: 190,
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.fontColor, width: 1.5),
+          borderRadius: BorderRadius.circular(2),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: AppSizes.sizeComponents.large),
+              Text(
+                title,
+                style: StylesFontConstants.subtitleWorldsSecondaryTile,
+              ),
+              Text(
+                subtitle,
+                style: StylesFontConstants.displayWorldsTileContent,
+              ),
+            ],
+          ),
         ),
       ),
     );

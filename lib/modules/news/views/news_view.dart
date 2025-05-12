@@ -139,7 +139,7 @@ class _HomeViewState extends State<NewsView> {
                 : Center(
                   child: LoadingAnimationWidget.inkDrop(
                     color: AppColors.fontColor,
-                    size: AppSizes.sizeComponents.large ?? 0,
+                    size: AppSizes.sizeComponents.large ?? 40,
                   ),
                 ),
       ),

@@ -67,7 +67,7 @@ class _HomeViewState extends State<WorldsView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 20),
+                      SizedBox(height: AppSizes.sizeComponents.huge),
                       TilePlayerWorld(
                         title: WorldsStrings.numberOfPlayer,
                         subtitle:
@@ -75,7 +75,7 @@ class _HomeViewState extends State<WorldsView> {
                                 .toString() ??
                             '0',
                       ),
-                      SizedBox(height: AppSizes.sizeComponents.large),
+                      SizedBox(height: AppSizes.sizeComponents.huge),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -99,7 +99,7 @@ class _HomeViewState extends State<WorldsView> {
                           ),
                         ],
                       ),
-                      SizedBox(height: AppSizes.sizeComponents.large),
+                      SizedBox(height: AppSizes.sizeComponents.huge),
                       ListViewWorlds(
                         regularWorlds:
                             controller.worldModel.worlds?.regularWorlds ?? [],

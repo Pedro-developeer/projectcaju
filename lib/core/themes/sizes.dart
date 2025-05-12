@@ -74,7 +74,7 @@ class AppSizes {
     extraSmall: 1,
     small: 2,
     medium: 4,
-    large: 8,
+    large: 30,
     extraLarge: 10,
     huge: 18,
     gigantic: 35,
