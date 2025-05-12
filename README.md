@@ -1,16 +1,75 @@
-# projectcaju
+# ScrollSeeker 📜
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 
-A new Flutter project.
+Aplicativo mobile dedicado ao universo do Tibia, com foco em exploração de conteúdo, utilidades e informações para jogadores.
 
-## Getting Started
+## 📂 Estrutura do projeto
 
-This project is a starting point for a Flutter application.
+O projeto está organizado de forma modular, onde cada nova funcionalidade do app é implementada dentro de seu respectivo módulo.
 
-A few resources to get you started if this is your first Flutter project:
+### 🌲 Árvore de diretórios
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```dart
+.
+├── assets/
+│   ├── images/
+│   │   └── icons
+│   └── fonts
+└── lib/
+    ├── modules/ 
+    │   ├── common/ /
+    │   │   ├── configs
+    │   │   ├── constants
+    │   │   ├── components
+    │   │   ├── controllers
+    │   │   ├── exceptions
+    │   │   ├── formatters
+    │   │   ├── helpers
+    │   │   ├── models
+    │   │   ├── routes
+    │   │   ├── services
+    │   │   └── theme
+    │   ├── module_one/ 
+    │   │   ├── controllers
+    │   │   ├── models
+    │   │   ├── repositories
+    │   │   ├── routes
+    │   │   ├── services
+    │   │   └── views
+    │   ├── module_two/
+    │   │   ├── controllers
+    │   │   ├── models
+    │   │   ├── repositories
+    │   │   ├── routes
+    │   │   ├── services
+    │   │   └── views
+    │   └── ... 
+    ├── routes 
+    └── main.dart 
+```
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Iniciando o desenvolvimento
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/ScrollSeeker.git
+
+# Acesse a pasta do projeto
+cd projectcaju
+
+# Instale as dependências
+flutter pub get
+
+```
+
+Abra o projeto na sua IDE de preferência e rode em um emulador ou dispositivo físico.
+
+---
+
+## 🔗 Links úteis
+
+- [Flutter Docs](https://docs.flutter.dev/get-started/install)
+- [Tibia API](https://tibiadata.com/)
+
