@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
+import 'package:projectcaju/core/themes/sizes.dart';
+import 'package:projectcaju/modules/news/strings/news_strings.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewArguments {
@@ -61,13 +64,19 @@ class _WebviewViewState extends State<WebviewView> {
           },
         ),
         backgroundColor: AppColors.appBarBackground,
-        title: Text('Leitor', style: StylesFontConstants.title),
+        title: Text(NewsStrings.reader, style: StylesFontConstants.title),
         centerTitle: true,
       ),
       body: Stack(
         children: [
           WebViewWidget(controller: _controller),
-          if (loading) const Center(child: CircularProgressIndicator()),
+          if (loading)
+            Center(
+              child: LoadingAnimationWidget.inkDrop(
+                color: AppColors.fontColor,
+                size: AppSizes.sizeComponents.gigantic ?? 0,
+              ),
+            ),
         ],
       ),
     );

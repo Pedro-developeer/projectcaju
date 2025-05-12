@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projectcaju/core/constants/padding_constants.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
+
 class CardNews extends StatelessWidget {
   const CardNews({
     super.key,
@@ -24,7 +26,7 @@ class CardNews extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 8),
+        padding: StylesPaddingConstants.bottomComponent,
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.fontColor, width: 1.5),

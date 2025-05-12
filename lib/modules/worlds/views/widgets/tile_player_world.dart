@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectcaju/core/constants/padding_constants.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
 
@@ -22,7 +23,7 @@ class TilePlayerWorld extends StatelessWidget {
         borderRadius: BorderRadius.circular(2),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding:  StylesPaddingConstants.horizontalComponent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,

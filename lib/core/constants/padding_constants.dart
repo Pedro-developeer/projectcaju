@@ -6,4 +6,14 @@ class StylesPaddingConstants {
     top: 20,
     bottom: 8.0,
   );
+
+  static final EdgeInsets horizontalPage = const EdgeInsets.symmetric(
+    horizontal: 12.0,
+  );
+
+  static final EdgeInsets horizontalComponent = const EdgeInsets.symmetric(
+    horizontal: 10.0,
+  );
+
+  static final EdgeInsets bottomComponent = const EdgeInsets.only(bottom: 8);
 }

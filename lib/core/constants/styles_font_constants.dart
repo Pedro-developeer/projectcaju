@@ -5,8 +5,7 @@ import 'package:projectcaju/core/themes/colors.dart';
 class StylesFontConstants {
   static final TextStyle title = TextStyle(
     fontSize: 25,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'Roboto',
+    fontFamily: GoogleFonts.pixelifySans().fontFamily,
     color: AppColors.colorBackground,
   );
 

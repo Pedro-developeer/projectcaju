@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:projectcaju/core/constants/image_constants.dart';
+import 'package:projectcaju/core/constants/padding_constants.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
 import 'package:projectcaju/modules/character/models/character_model.dart';
@@ -54,7 +55,7 @@ class _CharacterViewState extends State<CharacterView> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          padding: StylesPaddingConstants.horizontalPage,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

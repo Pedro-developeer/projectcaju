@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
+import 'package:projectcaju/core/themes/sizes.dart';
 
 class TilePlayerWordSecondary extends StatelessWidget {
   const TilePlayerWordSecondary({
@@ -27,7 +28,7 @@ class TilePlayerWordSecondary extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: AppSizes.sizeComponents.large),
             Text(title, style: StylesFontConstants.subtitleWorldsSecondaryTile),
             Text(subtitle, style: StylesFontConstants.displayWorldsTileContent),
           ],

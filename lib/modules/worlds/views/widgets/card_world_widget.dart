@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:projectcaju/core/constants/image_constants.dart';
+import 'package:projectcaju/core/constants/padding_constants.dart';
 import 'package:projectcaju/core/constants/styles_font_constants.dart';
 import 'package:projectcaju/core/themes/colors.dart';
 
@@ -23,7 +24,7 @@ class CardWorld extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: StylesPaddingConstants.bottomComponent,
       child: Container(
         height: 80,
         decoration: BoxDecoration(
@@ -33,7 +34,7 @@ class CardWorld extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: StylesPaddingConstants.horizontalComponent,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -50,7 +51,7 @@ class CardWorld extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: StylesPaddingConstants.horizontalComponent,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

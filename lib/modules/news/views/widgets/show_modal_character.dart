@@ -45,7 +45,6 @@ Future<void> showModalSearchCharacter({
             onPressed: () async {
               try {
                 final characterModel = await getCharacterByName(inputText);
-                Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(
                   CharacterRoutes.character,
                   arguments: CharacterArguments(characterModel: characterModel),
@@ -55,7 +54,7 @@ Future<void> showModalSearchCharacter({
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Failed to fetch character data.',
+                      'Character dont found!',
                       style: StylesFontConstants.titleButton,
                     ),
                   ),
